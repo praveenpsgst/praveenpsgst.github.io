@@ -1,0 +1,298 @@
+<p>This is the partial for view 1.</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="jumbotron jumbotron1">
+    <div class="container">
+      <h1 class="display-4" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Angular Exercises!</h1>
+      <p class="lead" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic;">Following are the solved Angular Exercises.</p>
+    </div>
+</div>
+
+<div class="container my-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Exercise - Evil Siri</h4>
+        <p class="card-text">Enter your Name to make Siri greet you!</p>
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Name</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter your name" ng-model="uName">
+          </div>
+        </form>
+        <div class="media">
+          <img src="images/siri_icon.png" class="align-self-start mr-3" style="width:60px">
+          <div class="media-body">
+            <h4>Siri</h4>
+            <span ng-if="!uName">Hello! Siri, at your service.</span><span ng-if="uName">Welcome <strong>{{uName}}</strong>. How may I serve you today?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="container my-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Exercise - Handy instant maths calculators</h4>
+        <p class="card-text">Enter two numbers to perform basic arithmetic operations!</p>
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Number 1</span>
+            </div>
+            <input type="number" class="form-control" placeholder="Enter an evil number" ng-model="evilNum1">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Number 2</span>
+            </div>
+            <input type="number" ng-disabled="!evilNum1" class="form-control" placeholder="And another" ng-model="evilNum2">
+          </div>
+        </form>
+        <ul>
+            <li>{{evilNum1}} <span ng-if="evilNum1">+</span> {{evilNum2}} <span ng-if="evilNum2">=</span> <span ng-if="evilNum2 && evilNum2">{{evilNum1 + evilNum2}}</span></li>
+            <li>{{evilNum1}} <span ng-if="evilNum1">-</span> {{evilNum2}} <span ng-if="evilNum2">=</span> <span ng-if="evilNum2 && evilNum2">{{evilNum1 - evilNum2}}</span></li>
+            <li>{{evilNum1}} <span ng-if="evilNum1">*</span> {{evilNum2}} <span ng-if="evilNum2">=</span> <span ng-if="evilNum2 && evilNum2">{{evilNum1 * evilNum2}}</span></li>
+            <li>{{evilNum1}} <span ng-if="evilNum1">/</span> {{evilNum2}} <span ng-if="evilNum2">=</span> <span ng-if="evilNum2 && evilNum2">{{evilNum1 / evilNum2}}</span></li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+<div class="container my-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Exercise - Time remaining</h4>
+        <p class="card-text">Enter your age to calculate the time elapsed and remaining, of your lifespan!</p>
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Age</span>
+            </div>
+            <input type="number" class="form-control" placeholder="Enter your age in years" ng-model="uAge" max="72.6">
+          </div>
+        </form>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-success">Weeks elapsed so far: <span ng-if="uAge"><b>{{52 * uAge}}</b></span></li>
+            <li class="list-group-item list-group-item-danger">Weeks remaining to live: <span ng-if="uAge"><b>{{(72.6 - uAge) * 52}}</b></span>
+                <a href="https://ourworldindata.org/life-expectancy" role="button" class="btn info-icon px-1 py-0"
+                  data-toggle="tooltip" data-placement="left" target="_blank"
+                  title="Average Human Lifespan is considered to be 76.2 years. Click to go to Source!">
+                    <i class="fas fa-info-circle"></i>
+                </a>
+            </li>
+            <li class="list-group-item list-group-item">Percentage completion: <span ng-if="uAge"><b>{{uAge / 72.6 * 100 | number:2}}%</b></span></li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+<div class="container my-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Exercise - Profile Widget</h4>
+        <p class="card-text">Enter the URL for your display picture! <em>(Example: https://www.nowrunning.com/content/Artist/Robert-Downey/banner.jpg)</em></p>
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">URL</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter the URL of picture"
+             ng-init="dpUrl='https://www.nowrunning.com/content/Artist/Robert-Downey/banner.jpg'" ng-model="dpUrl">
+          </div>
+        </form>
+        <div class="container mt-4" style="display: flex; justify-content: center;">
+          <img src="{{dpUrl}}" class="align-self-start mr-3">
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="container my-3">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Profile form</h4>
+      <p class="card-text">Enter your Name and Description to update your profile!!</p>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Name</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Enter your name" ng-model="pName">
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Description</span>
+          </div>
+          <textarea class="form-control" placeholder="Enter your Profile Description" ng-model="pDesc"></textarea>
+        </div>
+      </form>
+      <div class="media mt-4">
+        <img src="{{dpUrl}}" class="align-self-start mr-3" style="width:60px">
+        <div class="media-body">
+          <h4 ng-if="!pName">Your Profile Name goes here.</h4>
+          <h4 ng-if="pName">{{pName}}</h4>
+          <span ng-if="!pDesc">Your Profile Description goes here.</span>
+          <span ng-if="pDesc">{{pDesc}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Profile form</h4>
+      <p class="card-text">Enter your Name and Description to update your profile!!</p>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Name</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Enter your name" ng-model="pName">
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Description</span>
+          </div>
+          <textarea class="form-control" placeholder="Enter your Profile Description" ng-model="pDesc"></textarea>
+        </div>
+      </form>
+      <div class="media mt-4">
+        <img src="{{dpUrl}}" class="align-self-start mr-3" style="width:60px">
+        <div class="media-body">
+          <h4 ng-if="!pName">Your Profile Name goes here.</h4>
+          <h4 ng-if="pName">{{pName}}</h4>
+          <span ng-if="!pDesc">Your Profile Description goes here.</span>
+          <span ng-if="pDesc">{{pDesc}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Profile form</h4>
+      <p class="card-text">Enter your Name and Description to update your profile! Check Show Email to show your Email under the profile!</p>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Name</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Enter your name" ng-model="pName">
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Description</span>
+          </div>
+          <textarea class="form-control" placeholder="Enter your Profile Description" ng-model="pDesc"></textarea>
+        </div>
+        <div class="container row mt-3">
+          <div class="form-check col-md-2 col-lg-2">
+            <input class="form-check-input" type="checkbox" ng-model="showEmail" id="checkBox1">
+            <label class="form-check-label" for="checkBox1">Show Email</label>
+          </div>
+          <div class="input-group input-group-sm col-md-10 col-lg-10" ng-show="showEmail">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Email</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter your Email" ng-model="pEmail">
+          </div>
+        </div>
+      </form>
+      <div class="media mt-4">
+        <img src="{{dpUrl}}" class="align-self-start mr-3" style="width:60px">
+        <div class="media-body">
+          <h4 ng-if="!pName">Your Profile Name goes here.</h4>
+          <h4 ng-if="pName">{{pName}}</h4>
+          <span ng-if="!pDesc">Your Profile Description goes here. <br></span>
+          <span ng-if="pDesc">{{pDesc}}</span>
+          <span ng-if="!pEmail && showEmail">Your Email goes here.<br></span>
+          <span ng-if="pEmail && showEmail">{{pEmail}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="profileController">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Control yourself</h4>
+      <p class="card-text">The details are initialised in default by a controller. Enter different values to change the scope object values!</p>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Name</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Enter your name" ng-model="profileName">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Description</span>
+          </div>
+          <textarea class="form-control" placeholder="Enter your Profile Description" ng-model="profileDesc"></textarea>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile DP URL</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Enter the URL of picture" ng-model="profileUrl">
+        </div>
+      </form>
+      <div class="media mt-4">
+        <img src="{{profileUrl}}" class="align-self-start mr-3" style="width:60px">
+        <div class="media-body">
+          <h4 ng-if="!profileName">Your Profile Name goes here.</h4>
+          <h4 ng-if="profileName">{{profileName}}</h4>
+          <span ng-if="!profileDesc">Your Profile Description goes here.</span>
+          <span ng-if="profileDesc">{{profileDesc}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="calculatorController">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Helper function</h4>
+      <p class="card-text">Enter two numbers to perform basic arithmetic operations! Use the "Reset Values" button to reset the numbers to 0!</p>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Number 1</span>
+          </div>
+          <input type="number" class="form-control" placeholder="Enter an evil number" ng-model="calcNum1">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Number 2</span>
+          </div>
+          <input type="number" class="form-control" placeholder="And another" ng-model="calcNum2">
+        </div>
+        <button type="button" class="btn btn-primary mb-3" ng-click="resetToZero()">Reset Values</button>
+      </form>
+      <ul>
+          <li>{{calcNum1}} + {{calcNum2}} = {{calcNum1 + calcNum2}}</li>
+          <li>{{calcNum1}} - {{calcNum2}} = {{calcNum1 - calcNum2}}</li>
+          <li>{{calcNum1}} * {{calcNum2}} = {{calcNum1 * calcNum2}}</li>
+          <li>{{calcNum1}} / {{calcNum2}} = {{calcNum1 / calcNum2}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>

@@ -1,10 +1,3 @@
-<p>This is the partial for view 1.</p>
-
-<br>
-<br>
-<br>
-<br>
-
 <div class="jumbotron jumbotron1">
     <div class="container">
       <h1 class="display-4" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">AngularJs Exercises!</h1>
@@ -149,39 +142,7 @@
 <div class="container my-3">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Exercise - Profile form</h4>
-      <p class="card-text">Enter your Name and Description to update your profile!!</p>
-      <form>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Profile Name</span>
-          </div>
-          <input type="text" class="form-control" placeholder="Enter your name" ng-model="pName">
-        </div>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Profile Description</span>
-          </div>
-          <textarea class="form-control" placeholder="Enter your Profile Description" ng-model="pDesc"></textarea>
-        </div>
-      </form>
-      <div class="media mt-4">
-        <img src="{{dpUrl}}" class="align-self-start mr-3" style="width:60px">
-        <div class="media-body">
-          <h4 ng-if="!pName">Your Profile Name goes here.</h4>
-          <h4 ng-if="pName">{{pName}}</h4>
-          <span ng-if="!pDesc">Your Profile Description goes here.</span>
-          <span ng-if="pDesc">{{pDesc}}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container my-3">
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Exercise - Profile form</h4>
+      <h4 class="card-title">Exercise - Make the form optional</h4>
       <p class="card-text">Enter your Name and Description to update your profile! Check Show Email to show your Email under the profile!</p>
       <form>
         <div class="input-group mb-3">
@@ -288,6 +249,158 @@
           <li>{{calcNum1}} * {{calcNum2}} = {{calcNum1 * calcNum2}}</li>
           <li>{{calcNum1}} / {{calcNum2}} = {{calcNum1 / calcNum2}}</li>
       </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Multiple profile widgets</h4>
+      <br>
+      <br>
+      <div ng-controller="profileController1">
+        <p class="card-text">The below details are initialised in default by a controller - profileController1. Enter different values to change the scope object values!</p>
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Profile Name</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter your name" ng-model="profileName">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Profile Description</span>
+            </div>
+            <textarea class="form-control" placeholder="Enter your Profile Description" ng-model="profileDesc"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Profile DP URL</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter the URL of picture" ng-model="profileUrl">
+          </div>
+        </form>
+        <div class="media mt-4">
+          <img src="{{profileUrl}}" class="align-self-start mr-3" style="width:60px">
+          <div class="media-body">
+            <h4 ng-if="!profileName">Your Profile Name goes here.</h4>
+            <h4 ng-if="profileName">{{profileName}}</h4>
+            <span ng-if="!profileDesc">Your Profile Description goes here.</span>
+            <span ng-if="profileDesc">{{profileDesc}}</span>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div ng-controller="profileController2">
+        <p class="card-text">The below details are initialised in default by a controller - profileController2. Enter different values to change the scope object values!</p>
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Profile Name</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter your name" ng-model="profileName">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Profile Description</span>
+            </div>
+            <textarea class="form-control" placeholder="Enter your Profile Description" ng-model="profileDesc"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Profile DP URL</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter the URL of picture" ng-model="profileUrl">
+          </div>
+        </form>
+        <div class="media mt-4">
+          <img src="{{profileUrl}}" class="align-self-start mr-3" style="width:60px">
+          <div class="media-body">
+            <h4 ng-if="!profileName">Your Profile Name goes here.</h4>
+            <h4 ng-if="profileName">{{profileName}}</h4>
+            <span ng-if="!profileDesc">Your Profile Description goes here.</span>
+            <span ng-if="profileDesc">{{profileDesc}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="profileController3">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Nested controllers and controller isolation</h4>
+      <p class="card-text">The details are initialised in default by two controllers - profileController3 and profileController4. Enter different values to change the scope object values!</p>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Name</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Enter your name" ng-model="profile.name">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Description</span>
+          </div>
+          <textarea class="form-control" placeholder="Enter your Profile Description" ng-model="profile.desc"></textarea>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile DP URL</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Enter the URL of picture" ng-model="profile.url">
+        </div>
+      </form>
+      <div class="media mt-4" ng-controller="profileController4">
+        <img src="{{profile.url}}" class="align-self-start mr-3" style="width:60px">
+        <div class="media-body">
+          <h4 ng-if="!profile.name">Your Profile Name goes here.</h4>
+          <h4 ng-if="profile.name">{{profile.name}}</h4>
+          <span ng-if="!profile.desc">Your Profile Description goes here.</span>
+          <span ng-if="profile.desc">{{profile.desc}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="profileController5">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Harder Exercise - Storing data on the controller</h4>
+      <p class="card-text">The details are initialised in default by a controller as a data store using "this". Enter different values to change the scope object values!</p>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Name</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Enter your name" ng-model="vm.profile.name">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Description</span>
+          </div>
+          <textarea class="form-control" placeholder="Enter your Profile Description" ng-model="vm.profile.desc"></textarea>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile DP URL</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Enter the URL of picture" ng-model="vm.profile.url">
+        </div>
+      </form>
+      <div class="media mt-4">
+        <img src="{{vm.profile.url}}" class="align-self-start mr-3" style="width:60px">
+        <div class="media-body">
+          <h4 ng-if="!vm.profile.name">Your Profile Name goes here.</h4>
+          <h4 ng-if="vm.profile.name">{{vm.profile.name}}</h4>
+          <span ng-if="!vm.profile.desc">Your Profile Description goes here.</span>
+          <span ng-if="vm.profile.desc">{{vm.profile.desc}}</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

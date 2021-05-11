@@ -7,7 +7,7 @@
 
 <div class="jumbotron jumbotron1">
     <div class="container">
-      <h1 class="display-4" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Angular Exercises!</h1>
+      <h1 class="display-4" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">AngularJs Exercises!</h1>
       <p class="lead" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic;">Following are the solved Angular Exercises.</p>
     </div>
 </div>
@@ -80,7 +80,7 @@
         </form>
         <ul class="list-group">
             <li class="list-group-item list-group-item-success">Weeks elapsed so far: <span ng-if="uAge"><b>{{52 * uAge}}</b></span></li>
-            <li class="list-group-item list-group-item-danger">Weeks remaining to live: <span ng-if="uAge"><b>{{(72.6 - uAge) * 52}}</b></span>
+            <li class="list-group-item list-group-item-danger">Weeks remaining to live: <span ng-if="uAge"><b>{{(72.6 - uAge) * 52 | number:2}}</b></span>
                 <a href="https://ourworldindata.org/life-expectancy" role="button" class="btn info-icon px-1 py-0"
                   data-toggle="tooltip" data-placement="left" target="_blank"
                   title="Average Human Lifespan is considered to be 76.2 years. Click to go to Source!">

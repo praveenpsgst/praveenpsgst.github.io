@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "name": "Count Tyrone Rugen",
+        "age": 42,
+        "combat": 74,
+        "mind": 69,
+        "speed": 63,
+        "strength": "Swordmanship",
+        "weakness": "Coward"
+    },
+    {
+        "id": 2,
+        "name": "Mr. Kobayashi",
+        "age": 58,
+        "combat": 33,
+        "mind": 65,
+        "speed": 41,
+        "strength": "Knowledge",
+        "weakness": "Physically weak"
+    },
+    {
+        "id": 3,
+        "name": "Mr. Smee",
+        "age": 72,
+        "combat": 21,
+        "mind": 70,
+        "speed": 24,
+        "strength": "Optimistic",
+        "weakness": "Physically weak"
+    },
+    {
+        "id": 4,
+        "name": "Bear",
+        "age": 39,
+        "combat": 78,
+        "mind": 34,
+        "speed": 55,
+        "strength": "Stuntsman",
+        "weakness": "Idiot"
+    },
+    {
+        "id": 5,
+        "name": "Oddjob",
+        "age": 40,
+        "combat": 67,
+        "mind": 65,
+        "speed": 41,
+        "strength": "Creative",
+        "weakness": "Communication"
+    },
+    {
+        "id": 6,
+        "name": "Bob The Goon",
+        "age": 41,
+        "combat": 67,
+        "mind": 60,
+        "speed": 52,
+        "strength": "Loyal",
+        "weakness": "Idiot"
+    },
+    {
+        "id": 7,
+        "name": "Byron T Hadley",
+        "age": 34,
+        "combat": 78,
+        "mind": 56,
+        "speed": 64,
+        "strength": "All Rounder",
+        "weakness": "Intolerant"
+    },
+    {
+        "id": 8,
+        "name": "Gogo Yubari",
+        "age": 27,
+        "combat": 81,
+        "mind": 69,
+        "speed": 70,
+        "strength": "Weapons Skill",
+        "weakness": "Sociopath"
+    },
+    {
+        "id": 9,
+        "name": "Major Arnold Toht",
+        "age": 53,
+        "combat": 45,
+        "mind": 69,
+        "speed": 33,
+        "strength": "Authority",
+        "weakness": "Communication"
+    },
+    {
+        "id": 10,
+        "name": "Bebop",
+        "age": 24,
+        "combat": 71,
+        "mind": 31,
+        "speed": 45,
+        "strength": "Weapons Skill",
+        "weakness": "Idiot"
+    }
+]

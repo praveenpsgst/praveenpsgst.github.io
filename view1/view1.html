@@ -405,6 +405,257 @@
   </div>
 </div>
 
+<div class="container my-3" ng-controller="profileController6">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Watching and Applying</h4>
+      <p class="card-text">The details are initialised in default by a controller - profileController6, which has a $watch function. Clear the name to see the message for an invalid value!</p>
+      <form>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Name</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Enter your name" ng-model="profile.name">
+        </div>
+        <div class="mb-3" ng-show="error" style="color: rgb(221, 18, 18);">{{error.name}}</div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile Description</span>
+          </div>
+          <textarea class="form-control" placeholder="Enter your Profile Description" ng-model="profile.desc"></textarea>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Profile DP URL</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Enter the URL of picture" ng-model="profile.url">
+        </div>
+      </form>
+      <div class="media mt-4">
+        <img src="{{profile.url}}" class="align-self-start mr-3" style="width:60px">
+        <div class="media-body">
+          <h4 ng-if="!profile.name">Your Profile Name goes here.</h4>
+          <h4 ng-if="profile.name">{{profile.name}}</h4>
+          <span ng-if="!profile.desc">Your Profile Description goes here.</span>
+          <span ng-if="profile.desc">{{profile.desc}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="DIController1">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - NgDialog</h4>
+      <p class="card-text">The following button triggers a Dialog view of ngDialog package.</p>
+      <button type="button" class="btn btn-primary btn-block" ng-click="clickToOpen()">Trigger Dialog view!</button>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="henchmenController1">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - List your Assets</h4>
+      <p class="card-text">The table/list is initialised in default using ngRepeat and relies on a controller - henchMenController1, which has a scope object with values like in below, in the JSON format.</p>
+      <table class="table table-sm table-hover table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="text-center">Name</th>
+            <th scope="col" class="text-center">Age</th>
+            <th scope="col" class="text-center">Combat(%)</th>
+            <th scope="col" class="text-center">Mind(%)</th>
+            <th scope="col" class="text-center">Speed(%)</th>
+            <th scope="col" class="text-center">Strength</th>
+            <th scope="col" class="text-center">Weakness</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="i in henchMen track by $index">
+            <td scope="row">{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.combat}}</td>
+            <td>{{i.mind}}</td>
+            <td>{{i.speed}}</td>
+            <td>{{i.strength}}</td>
+            <td>{{i.weakness}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="henchmenController1">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Search the henchmen</h4>
+      <p class="card-text">The table/list is initialised in default using ngRepeat and relies on a controller - henchMenController1, which has a scope object with values like in below, in the JSON format. Type your search term to filter the list.</p>
+      
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Search</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Type to search the below list" ng-model="henchSearch1">
+      </div>
+
+      <table class="table table-sm table-hover table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="text-center">Name</th>
+            <th scope="col" class="text-center">Age</th>
+            <th scope="col" class="text-center">Combat(%)</th>
+            <th scope="col" class="text-center">Mind(%)</th>
+            <th scope="col" class="text-center">Speed(%)</th>
+            <th scope="col" class="text-center">Strength</th>
+            <th scope="col" class="text-center">Weakness</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="i in henchMen | filter:henchSearch1 track by $index">
+            <td scope="row">{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.combat}}</td>
+            <td>{{i.mind}}</td>
+            <td>{{i.speed}}</td>
+            <td>{{i.strength}}</td>
+            <td>{{i.weakness}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="henchmenController1">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Sort the henchmen</h4>
+      <p class="card-text">The table/list is initialised in default using ngRepeat and relies on a controller - henchMenController1, which has a scope object with values like in below, in the JSON format. Type your search term to filter the list. Press the buttons to sort by the respective columns.</p>
+      
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Search</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Type to search the below list" ng-model="henchSearch2">
+      </div>
+
+      <div class="input-group input-group-sm mb-3" ng-init="henchSort='id'">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Sort By</span>
+        </div>
+        <div class="btn-group btn-group-sm ml-1" role="group">
+          <button type="button" class="btn btn-secondary" ng-click="henchSort='id'">ID</button>
+          <button type="button" class="btn btn-secondary" ng-click="henchSort='name'">Name</button>
+          <button type="button" class="btn btn-secondary" ng-click="henchSort='age'">Age</button>
+          <button type="button" class="btn btn-secondary" ng-click="henchSort='combat'">Combat</button>
+          <button type="button" class="btn btn-secondary" ng-click="henchSort='mind'">Mind</button>
+          <button type="button" class="btn btn-secondary" ng-click="henchSort='speed'">Speed</button>
+          <button type="button" class="btn btn-secondary" ng-click="henchSort='strength'">Strength</button>
+          <button type="button" class="btn btn-secondary" ng-click="henchSort='weakness'">Weakness</button>
+        </div>
+      </div>
+
+      <table class="table table-sm table-hover table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="text-center">Name</th>
+            <th scope="col" class="text-center">Age</th>
+            <th scope="col" class="text-center">Combat(%)</th>
+            <th scope="col" class="text-center">Mind(%)</th>
+            <th scope="col" class="text-center">Speed(%)</th>
+            <th scope="col" class="text-center">Strength</th>
+            <th scope="col" class="text-center">Weakness</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="i in henchMen | filter:henchSearch2 | orderBy:henchSort track by $index">
+            <td scope="row">{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.combat}}</td>
+            <td>{{i.mind}}</td>
+            <td>{{i.speed}}</td>
+            <td>{{i.strength}}</td>
+            <td>{{i.weakness}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="henchmenController2">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - update the Henchmen to pull from a JSON feed</h4>
+      <p class="card-text">The table/list is initialised in default using ngRepeat and relies on a controller - henchMenController2, which pulls data from a local JSON by an HTTP request. Type your search term to filter the list.</p>
+      <div ng-if="henchMen">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Search</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Type to search the below list" ng-model="henchSearch1">
+        </div>
+
+        <table class="table table-sm table-hover table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col" class="text-center">ID</th>
+              <th scope="col" class="text-center">Name</th>
+              <th scope="col" class="text-center">Age</th>
+              <th scope="col" class="text-center">Combat(%)</th>
+              <th scope="col" class="text-center">Mind(%)</th>
+              <th scope="col" class="text-center">Speed(%)</th>
+              <th scope="col" class="text-center">Strength</th>
+              <th scope="col" class="text-center">Weakness</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="i in henchMen | filter:henchSearch1 track by $index">
+              <td scope="row">{{i.id}}</td>
+              <td>{{i.name}}</td>
+              <td>{{i.age}}</td>
+              <td>{{i.combat}}</td>
+              <td>{{i.mind}}</td>
+              <td>{{i.speed}}</td>
+              <td>{{i.strength}}</td>
+              <td>{{i.weakness}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="flickrController1">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Flickr Exercise</h4>
+      <p class="card-text">The following images are displayed using ngRepeat and relies on a controller - flickrController1, which pulls data from a remote JSONP endpoint by an HTTP request. Type your search term to filter based on their tags.</p>
+      <div ng-if="flickrImages">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Search</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Type tag to filter images" ng-model="flickrSearch1">
+        </div>
+        <div class="stack-three">
+          <img ng-repeat="item in flickrImages.items | filter:flickrSearch1 track by $index" ng-src="{{item.media.m}}">
+          <img src="https://cdn.pixabay.com/photo/2018/03/25/09/57/cute-3258931_960_720.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <br>
 <br>
 <br>

@@ -214,7 +214,7 @@ MyApp.controller("henchmenController2", ['$scope', "$http", function($scope, $ht
 }]);
 
 MyApp.config(function($sceDelegateProvider){
-  $sceDelegateProvider.resourceUrlWhitelist(['self','http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&callback=jsonFlickrFeed']);
+  $sceDelegateProvider.resourceUrlWhitelist(['self','https://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&callback=jsonFlickrFeed']);
 })
 
 function jsonFlickrFeed(response) {
@@ -222,7 +222,7 @@ function jsonFlickrFeed(response) {
 }
 
 MyApp.controller("flickrController1", ['$scope', "$http", "$window", function($scope, $http, $window) {
-  var url = "http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&callback=jsonFlickrFeed";
+  var url = "https://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&callback=jsonFlickrFeed";
   $http.jsonp(url, {jsonpCallbackParam: 'jsonFlickrFeed'})
   .catch(function(e) {
     $scope.flickrImages = $window.flickrdata ? $window.flickrdata : "Empty";

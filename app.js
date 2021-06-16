@@ -282,7 +282,7 @@ MyApp.filter('filterMentionsAndHashtags', function() {
         element = element.replace(/[^a-zA-Z0-9@_]/g, "");
         mentions.push(element);
       }
-      if(element.startsWith("#")) {0
+      if(element.startsWith("#")) {
         element = element.replace(/[^a-zA-Z0-9#_]/g, "");
         hashTags.push(element);
       }

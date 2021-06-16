@@ -575,7 +575,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="i in henchMen | filter:henchSearch2 | orderBy:henchSort track by $index">
+          <tr ng-repeat="i in henchMen | filter:henchSearch2 | orderBy:henchSort:true track by $index">
             <td scope="row">{{i.id}}</td>
             <td>{{i.name}}</td>
             <td>{{i.age}}</td>
@@ -641,6 +641,7 @@
       <h4 class="card-title">Exercise - Flickr Exercise</h4>
       <p class="card-text">The following images are displayed using ngRepeat and relies on a controller - flickrController1, which pulls data from a remote JSONP endpoint by an HTTP request. Type your search term to filter based on their tags.</p>
       <div ng-if="flickrImages">
+        <h5 class="my-3"><u>{{flickrImages.title}}:</u></h5>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text">Search</span>
@@ -651,6 +652,91 @@
           <img ng-repeat="item in flickrImages.items | filter:flickrSearch1 track by $index" ng-src="{{item.media.m}}">
           <img src="https://cdn.pixabay.com/photo/2018/03/25/09/57/cute-3258931_960_720.jpg">
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="filterController1">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Reverse Filter</h4>
+      <p class="card-text">The following input relies on a filter function - reverseString and this block is bound to filterController1. Type a word to reverse it!</p>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Input</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Type a word" ng-model="reverseInput" ng-change="logOutput()">
+      </div>
+      <div ng-if="reverseInput">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Output</span>
+          </div>
+          <input type="text" class="form-control" ng-value="reverseInput | reverseString" ng-model="reverseOutput" disabled>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="filterController2">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Filtering the first element from an array</h4>
+      <p class="card-text">The following input relies on a filter function - firstElement and this block is bound to filterController2. Enter space-separated words to filter the first element!</p>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Input</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Type some words" ng-model="arrayInput" ng-change="processInput()">
+      </div>
+      <div ng-if="arrayInput">
+        <p>The split array is: {{arrayOutput}}
+        </p>
+        <p>
+          The first element in the array is: {{arrayInput | firstElement}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="filterController3">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Pagination</h4>
+      <p class="card-text">The following input relies on a filter function - nPagination and this block is bound to filterController3. Enter the value of N, to get first N elements from the following array!</p>
+      <p class="mt-2">The existing array is: {{arrayNum}}</p>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">N</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Enter the value of N" ng-model="sizeInput" ng-change="logOutput()">
+      </div>
+      <div ng-if="sizeInput">
+        <p>
+          The first N paginated array is: {{arrayNum | nPagination:sizeInput}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3" ng-controller="filterController4">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Exercise - Tweets</h4>
+      <p class="card-text">The following input relies on a filter function - filterMentionsAndHashtags and this block is bound to filterController4. Enter a raw tweet to convert into an active one with link to mentions and hastags!</p>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Tweet </span>
+        </div>
+        <input type="text" class="form-control" placeholder="Type the raw tweet" ng-model="rawTweet" ng-change="logOutput()">
+      </div>
+      <div ng-if="rawTweet">
+        <span>The Active tweet: </span>
+        <span ng-bind-html="rawTweet | filterMentionsAndHashtags"></span>
       </div>
     </div>
   </div>

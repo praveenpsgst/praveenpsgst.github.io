@@ -6,7 +6,8 @@ var MyApp = angular.module('myApp', [
   'myApp.view1',
   'myApp.view2',
   'myApp.version',
-  'ngDialog'
+  'ngDialog',
+  'ngSanitize'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
@@ -229,4 +230,75 @@ MyApp.controller("flickrController1", ['$scope', "$http", "$window", function($s
     console.log($scope.flickrImages);
     console.log(e);
   });
+}]);
+
+MyApp.filter('reverseString', function() {
+  return function(str) {
+    return str.split('').reverse().join('');;
+  }
+});
+
+MyApp.controller("filterController1", ['$scope', '$timeout', function($scope) {
+  $scope.logOutput = function(){
+    console.log($scope.reverseOutput);
+  };
+}]);
+
+MyApp.filter('firstElement', function() {
+  return function(str) {
+    return str.split(' ')[0];
+  }
+});
+
+MyApp.controller("filterController2", ['$scope', '$timeout', function($scope) {
+  $scope.arrayInput = "";
+  $scope.processInput = function(){
+    $scope.arrayOutput = $scope.arrayInput.split(' ');
+    console.log($scope.arrayOutput);
+  };
+}]);
+
+MyApp.filter('nPagination', function() {
+  return function(arr, n) {
+    var newArr = [];
+    return arr.slice(0,n++);
+  }
+});
+
+MyApp.controller("filterController3", ['$scope', '$timeout', function($scope) {
+  $scope.arrayNum = [101, 102, 103, 104, 105, 106, 107, 108, 109, 110];
+  $scope.logOutput = function(){
+    console.log($scope.sizeInput);
+  };
+}]);
+
+MyApp.filter('filterMentionsAndHashtags', function() {
+  return function(str) {
+    var words = str.split(" ");
+    var mentions = new Array();
+    var hashTags = new Array();
+    words.forEach(element => {
+      if(element.startsWith("@")) {
+        element = element.replace(/[^a-zA-Z0-9@_]/g, "");
+        mentions.push(element);
+      }
+      if(element.startsWith("#")) {0
+        element = element.replace(/[^a-zA-Z0-9#_]/g, "");
+        hashTags.push(element);
+      }
+    });
+    mentions.forEach(element => {
+      str = str.replaceAll(element, "<a href='http://twitter.com/" + element + "' target='_blank'>" + element + "</a>");
+    });
+    hashTags.forEach(element => {
+      str = str.replaceAll(element, "<a href='http://twitter.com/search?query=" + element + "' target='_blank'>" + element + "</a>");
+    });
+    console.log(str);
+    return str;
+  }
+});
+
+MyApp.controller("filterController4", ['$scope', '$timeout', function($scope) {
+  $scope.logOutput = function(){
+  };
 }]);
